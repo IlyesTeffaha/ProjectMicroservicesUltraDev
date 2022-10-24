@@ -1,0 +1,67 @@
+version: "3.9"
+services:
+  discovery:
+   build: ../Eureka_Server
+   ports:
+    - "8761:8761"
+   image: "discoveryservice"
+   
+#  apigateway:
+#    build: C:/Users/Elyes/Desktop/APIGateway-3
+#    container_name: apigateway
+#    depends_on:
+#      - discovery
+#    environment:
+#      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+#    image: "apigateway"
+#    ports:
+#      - "8888:8888"
+
+      
+  Blog:
+   build: ../Blog_ilyes
+   environment:
+   - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+   ports:
+   - "8090:8090"
+   image: "blogservice"
+
+  Hotel:
+    build: ../Hotels_amir
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8083:8083"
+    image: "hotelservice"
+
+  Sejour:
+    build: ../Sejours_youssef
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8082:8082"
+    image: "sejourservice"
+  
+
+ 
+
+
+  
+  # nodebackend:
+   # depends_on: 
+     # - "mysqldb"
+   # container_name: nodebackend
+   # image: "authimage"
+   # build: ../nodebackenddocker/server
+   # ports:
+     # - "3001:3001"
+   # hostname: nodebackend
+   # environment:
+      # - DB_HOST=mysqldb
+      # - DB_USER=root
+      # - DB_PASSWORD=""
+      # - DB_NAME=internshipdb
+      # - DB_PORT=3308
+   # command: "node index.js"
+   
+

@@ -1,0 +1,4 @@
+FROM openjdk:17-oracle
+EXPOSE 8761
+ADD /target/Eureka_Server-0.0.1-SNAPSHOT.jar eurekaserver.jar
+ENTRYPOINT ["java","-jar","eurekaserver.jar"]

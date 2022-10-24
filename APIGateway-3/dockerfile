@@ -1,0 +1,4 @@
+FROM openjdk:17-oracle
+ADD target/APIGateway-3-0.0.1-SNAPSHOT.jar APIGateway.jar
+EXPOSE 8888
+ENTRYPOINT ["java", "-jar", "APIGateway.jar"]
