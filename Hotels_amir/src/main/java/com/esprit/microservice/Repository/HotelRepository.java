@@ -19,7 +19,8 @@ public interface HotelRepository extends JpaRepository <Hotel,Integer>{
 		@Query("select f from Hotel f where f.state LIKE %:state% ")
 	    List<Hotel> retrieveAllHotelBystate(@Param("state") String state);
 
-	   
+	   		@Query("select f from Hotel f where f.country LIKE %:country% ")
+	    List<Hotel> retrieveAllHotelBycountry(@Param("country") String country);
 
 	  
 

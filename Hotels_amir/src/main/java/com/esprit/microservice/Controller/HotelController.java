@@ -114,4 +114,59 @@ public class HotelController {
 	return new ResponseEntity<>(hotelService.deleteHotel(id),HttpStatus.OK);
 
 	}*/
+	
+	//http://localhost:8082/SpringMVC/hotel/getAllHotelsNameDesc
+    @GetMapping("getAllHotelsNameDesc")
+    public List<Hotel> getAllHotelsNameDesc(){
+        return hotelService.retrieveAllHotelByNameHotelDesc();
+    }
+   
+  //http://localhost:8082/SpringMVC/hotel/getAllHotelsNameAsc
+    @GetMapping("getAllHotelsNameAsc")
+    public List<Hotel> getAllHotelsNameAsc(){
+        return hotelService.retrieveAllHotelByPriceAsc();
+    }
+    
+    //http://localhost:8082/SpringMVC/hotel/getAllHotelsNameDesc
+    @GetMapping("getAllHotelsPrice")
+    public List<Hotel> getAllHotelsPriceDesc(){
+        return hotelService.retrieveAllHotelByPriceDesc();
+    }
+   
+  //http://localhost:8082/SpringMVC/hotel/getAllHotelsNameAsc
+    @GetMapping("getAllHotelsPriceAsc")
+    public List<Hotel> getAllHotelsPriceAsc(){
+        return hotelService.retrieveAllHotelByPriceAsc();
+    }
+    
+    
+  //http://localhost:8082/SpringMVC/hotel/getHotelByState/{state}
+    @GetMapping("/getHotelByState/{state}")
+    public List<Hotel> retrieveHotelByState (@PathVariable("state") String state){
+        return hotelService.retrieveAllHotelBystate(state);
+    }
+    
+    @GetMapping("/getHotelByCountry/{country}")
+    public List<Hotel> retrieveHotelByCountry (@PathVariable("country") String country){
+        return hotelService.retrieveAllHotelBycountry(country);
+    }
+    
+  //http://localhost:8082/SpringMVC/hotel/retrieveHotelById/{id}
+    @GetMapping("/retrieveHotelByIdClient/{id}")
+    public Hotel retrieveHotelsById (@PathVariable("idHotel") Long idHotel){
+        return hotelService.retrieveHotelById(idHotel);
+    }
+	
+    //http://localhost:8082/SpringMVC/hotel/retrieveHotelById/{id}
+    @GetMapping("/retrieveHotelByName/{name}")
+    public List<Hotel> retrieveHotelsByName (@PathVariable("name") String name){
+        return hotelService.retrieveAllHotelByName(name);
+    }
+	
+	/*@DeleteMapping(value="/id", produces= MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<String> deleteHotel(@PathVariable(value="id") int  id){
+	return new ResponseEntity<>(hotelService.deleteHotel(id),HttpStatus.OK);
+
+	}*/
 }
