@@ -7,7 +7,7 @@ services:
    image: "discoveryservice"
    
   apigateway:
-    build: C:/Users/Elyes/Desktop/APIGateway-3
+    build: C:\Users\msi\Documents\GitHub\ProjectMicroservicesUltraDev\APIGateway-3
     container_name: apigateway
     depends_on:
       - discovery
